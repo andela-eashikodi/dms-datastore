@@ -1,0 +1,34 @@
+{
+  "name": "datastore-api",
+  "version": "1.0.0",
+  "description": "Datastore API",
+  "main": "server.js",
+  "scripts": {
+    "test": "jasmine-node spec/api_route.spec.js --forceexit --verbose",
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-eashikodi/datastore-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-eashikodi/datastore-api/issues"
+  },
+  "homepage": "https://github.com/andela-eashikodi/datastore-api#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.0",
+    "client-sessions": "^0.7.0",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.1.7",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5",
+    "supertest": "^1.1.0"
+  }
+}
