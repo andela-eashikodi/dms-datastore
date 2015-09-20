@@ -4,7 +4,7 @@ var Document = mongoose.model('Document');
 var DocumentController = function() {};
 
 DocumentController.prototype.createDocument = function(req, res) {
-  req.body.ownerId = req.session.user._id;
+  req.body.ownerId = req.decoded._id;
   Document.findOne({title: req.body.title}, function(err, doc) {
     if (doc) {
       res.json({
