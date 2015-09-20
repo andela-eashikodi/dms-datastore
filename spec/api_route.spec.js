@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/testdmsapi');
 var User = mongoose.model('User');
 var Document = mongoose.model('Document');
-var user, userId, doc, documentId;
+var user, userId, doc, documentId, userToken;
 describe('Document Manager API', function() {
 
   describe('User routes', function() {
@@ -160,21 +160,29 @@ describe('Document Manager API', function() {
 
     it('should create a new document instance', function(done) {
       request(app)
-        .post('/documents/')
+        .post('/users/authenticate')
         .set('Content-Type', 'application/json')
         .send({
           email: 'john@gmail.com',
-          password: 'johnson',
-          title: 'chapter-1',
-          content: 'The very first chapter'
+          password: 'johnson'
         })
         .end(function(err, res) {
-          expect(res.body.ownerId).toMatch(jasmine.objectContaining(userId));
-          expect(res.body).toEqual(jasmine.objectContaining({
+          userToken = res.body.token;
+          request(app)
+          .post('/documents/?token=' + userToken)
+          .set('Content-Type', 'application/json')
+          .send({
             title: 'chapter-1',
             content: 'The very first chapter'
-          }));
-          done();
+          })
+          .end(function(err, res) {
+            expect(res.body.ownerId).toMatch(jasmine.objectContaining(userId));
+            expect(res.body).toEqual(jasmine.objectContaining({
+              title: 'chapter-1',
+              content: 'The very first chapter'
+            }));
+            done();
+          });
         });
     });
 
