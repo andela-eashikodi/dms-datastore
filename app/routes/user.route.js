@@ -22,5 +22,8 @@ module.exports = function(app) {
   router.route('/:id/documents')
     .get(ctrl.findUserDocuments);
 
+  router.route('/authenticate')
+    .post(ctrl.userAuth);
+
   app.use('/users', router);
 };

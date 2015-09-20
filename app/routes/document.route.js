@@ -8,7 +8,7 @@ var userCtrl = new UserController();
 module.exports = function(app) {
 
   router.route('/')
-    .post(userCtrl.verifyUser, documentCtrl.createDocument)
+    .post(userCtrl.verifyUserAuth, documentCtrl.createDocument)
     .get(documentCtrl.getAllDocuments);
 
   router.route('/:id')
