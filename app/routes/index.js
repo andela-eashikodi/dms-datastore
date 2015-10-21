@@ -1,3 +1,5 @@
+'use strict';
+
 var userRoute = require('./user.route');
 var documentRoute = require('./document.route');
 
