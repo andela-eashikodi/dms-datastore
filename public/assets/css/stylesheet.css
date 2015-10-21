@@ -1,0 +1,77 @@
+.footer {
+  position: fixed;
+  background-color: #2f4f4f;
+  height: 2em;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  line-height: 2em;
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+}
+
+.top-bar {
+  position: fixed;
+  height: 2em;
+  top: 0;
+  width: 100%;
+}
+
+.content-view {
+  margin-top: 8em;
+  margin-bottom: 8em;
+}
+
+.doc-header {
+  background:#cccccc;
+  margin: 0;
+}
+
+.sign-button {
+  padding: 3px 7px;
+  border-radius: 3px;
+  border: 1px solid white;
+}
+
+.sign-button:hover {
+  background: #7ac5cd;
+}
+
+.docs-title {
+  color: black;
+  font-weight: 600 !important;
+}
+
+.docs-content {
+  color: rgb(99, 99, 99) !important;
+}
+
+.log-header {
+  background:#528b8b;
+  margin:0;
+  color:white;
+  font-size: 18px;
+}
+
+.error-header {
+  background:red;
+  margin:0;
+  color:white;
+  font-size: 16px;
+}
+
+.profile-bar {
+  background:#f0f0f0;
+  color:black;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.email-message {
+  margin-top:-20px;
+  font-size:10px;
+  color:red
+}

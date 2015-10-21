@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DmsApp">
+<head>
+  <title>DataStore</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="libs/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <link href="http://heathpilton.com.au/wp-content/uploads/2013/06/Document-icon-blue.png" rel="icon" type="image/x-icon">
+</head>
+<body>
+
+  <div ng-controller="homeCtrl" ng-include="'app/views/header.view.html'"></div>
+  
+  <ui-view></ui-view>
+
+  <div class="footer">
+    <center>
+      <span>©copyright 2015 &nbsp; </span><a href="http://github.com/andela-eashikodi">Ashikodi</a>
+    </center>
+  </div>
+
+  <!-- Angular Material Dependencies -->
+  <script src="build/js/main.js"></script>
+
+  <script src="app/module/app.module.js"></script>
+  <script src="app/controllers/home.controller.js"></script>
+  <script src="app/controllers/user.controller.js"></script>
+  <script src="app/controllers/doc.controller.js"></script>
+  <script src="app/services/sidenav.service.js"></script>
+  <script src="app/services/doc.service.js"></script>
+  <script src="app/services/user.service.js"></script>
+  <script src="app/services/toast.service.js"></script>
+</body>
+</html>

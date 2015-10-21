@@ -1,0 +1,44 @@
+<md-content layout layout-align="center center" layout-margin class="md-accent container content-view">
+  <md-card flex="50">
+    <md-subheader class="log-header">
+        <center>
+          <span>Sign In </span>
+        </center>
+    </md-subheader>
+    <md-subheader ng-show="showLoginErr" class="error-header">
+      <center>
+        <span>
+          <i class="fa fa-warning fa-lg"></i>
+          <em><strong>{{errorMsg}}</strong></em>
+        </span>
+      </center>
+    </md-subheader>
+    <md-content class="md-padding">
+       <form name="loginForm">
+        <md-input-container md-no-float>
+          <md-icon md-svg-src="assets/icons/email.icon.svg"></md-icon>
+          <input name="emailName" ng-model="userDetail.email" type="email" placeholder="Email" ng-required="true">
+          <div flex-offset="5" ng-messages="loginForm.emailName.$error">
+            <div ng-message="email">Type in a valid email address</div>
+          </div>
+        </md-input-container>
+        <md-input-container md-no-float>
+          <md-icon md-svg-src="assets/icons/password.icon.svg"></md-icon>
+          <input name="passName" ng-model="userDetail.password" type="password" ng-minlength="6" ng-maxlength="20" placeholder="Password" ng-required="true">
+          <div flex-offset="5" ng-messages="loginForm.passName.$error">
+            <div class="error-message" ng-message="minlength">Enter a minimun of 6 characters</div>
+            <div class="error-message" ng-message="maxlength">Can not be more than 20 characters</div>
+          </div>
+        </md-input-container>
+        <div class="md-actions" layout="row" layout-align="center center">
+          <md-button ng-disabled="loginForm.$invalid" flex="50" ng-click="login(userDetail)" class="md-raised md-hue-4">Sign In</md-button>
+        </div>
+        <div layout layout-margin layout-align="center center">
+          <span style="text-align: center;">Don't have an account? &nbsp;<a href="#/signup">Sign Up</a></span>
+        </div>
+      </form>
+      <md-progress-linear md-mode="indeterminate" ng-show="showProg" class="md-primary">
+      </md-progress-linear>
+    </md-content>
+  </md-card>
+</md-content>

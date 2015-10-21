@@ -1,0 +1,32 @@
+<md-content layout layout-align="center center" layout-margin class="md-accent container content-view">
+  <md-card flex="50">
+    <md-subheader class="log-header">
+        <center>
+          <span>New Document </span>
+        </center>
+    </md-subheader>
+    <md-subheader ng-show="showError" class="error-header">
+      <center>
+        <span>
+          <i class="fa fa-warning fa-lg"></i>
+          <em><strong>{{errorMsg}}</strong></em>
+        </span>
+      </center>
+    </md-subheader>
+    <md-content class="md-padding">
+       <form name="docForm">
+        <md-input-container md-no-float>
+          <input name="title" ng-model="docInfo.title" type="text" placeholder="Title" ng-required="true">
+        </md-input-container>
+        <md-input-container md-no-float>
+          <textarea name="content" ng-model="docInfo.content" type="text" placeholder="Content" ng-required="true"></textarea>
+        </md-input-container>
+        <div class="md-actions" layout="row" layout-align="center center">
+          <md-button ng-disabled="docForm.$invalid" flex="50" ng-click="createDoc(docInfo)" class="md-raised md-hue-4">Submit</md-button>
+        </div>
+      </form>
+      <md-progress-linear md-mode="indeterminate" ng-show="showProg" class="md-primary">
+      </md-progress-linear>
+    </md-content>
+  </md-card>
+</md-content>
