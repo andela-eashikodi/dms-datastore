@@ -1,3 +1,5 @@
+'use strict';
+
 require('../models/user.schema');
 require('../models/document.schema');
 var jwt = require('jsonwebtoken');
@@ -10,26 +12,27 @@ var UserController = function() {};
 UserController.prototype.userAuth = function(req, res) {
   User.findOne({email: req.body.email}, function(err, user) {
     if (!user) {
-      return res.json({
+      return res.status(401).json({
         success: false,
-        message: 'Failed to authenticate user.'
+        message: 'Invalid login details'
       });
     } 
     else {
       var validPassword = user.comparePassword(req.body.password);
       if (validPassword) {
         var token = jwt.sign(user, config.secret, {
-          expiresInMinutes: 1440 //24hr expiration
+          expiresIn: 86400 //24hr expiration
         });
         res.json({
           success: true,
+          userId: user._id,
           token: token
         });
       } 
       else {
-        return res.json({
+        return res.status(401).json({
           success: false,
-          message: 'Failed to authenticate user.'
+          message: 'Invalid login details'
         });
       }
     }
@@ -38,11 +41,10 @@ UserController.prototype.userAuth = function(req, res) {
 
 UserController.prototype.verifyUserAuth = function(req, res, next) {
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
   if (token) {
     jwt.verify(token, config.secret, function(err, decoded) {
       if (err) {
-        return res.json({
+        return res.status(401).json({
           success: false,
           message: 'Failed to authenticate token.'
         });
@@ -53,8 +55,8 @@ UserController.prototype.verifyUserAuth = function(req, res, next) {
       }
     });
   } else {
-    //show http 403 message when token is not provided
-    return res.json({
+    //show http 401 message when token is not provided
+    return res.status(401).json({
       success: false,
       message: 'No token provided.'
     });
@@ -121,9 +123,9 @@ UserController.prototype.userLogout = function(req, res) {
 };
 
 UserController.prototype.createUser = function(req, res) {
-  User.findOne({email: req.body.email, username: req.body.username}, function(err, user) {
+  User.findOne({email: req.body.email}, function(err, user) {
     if (user) {
-      res.json({
+      res.status(401).json({
         sucess: false,
         message: 'email taken'
       });
@@ -160,7 +162,7 @@ UserController.prototype.findUser = function(req, res) {
 UserController.prototype.updateUser = function(req, res) {
   User.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, user) {
     if (err) {
-      return res.json(err);
+      return res.status(401).json(err);
     }
     res.json(user);
   });
@@ -176,7 +178,7 @@ UserController.prototype.deleteUser = function(req, res) {
 };
 
 UserController.prototype.findUserDocuments = function(req, res) {
-  Document.find({ownerId: req.params.id}).exec(function(err, docs) {
+  Document.find({ownerId: req.params.id}).populate('ownerId').exec(function(err, docs) {
     if (err) {
       return res.json(err);
     }

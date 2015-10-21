@@ -1,3 +1,5 @@
+'use strict';
+
 require('../models/document.schema');
 var mongoose = require('mongoose');
 var Document = mongoose.model('Document');
@@ -7,7 +9,7 @@ DocumentController.prototype.createDocument = function(req, res) {
   req.body.ownerId = req.decoded._id;
   Document.findOne({title: req.body.title}, function(err, doc) {
     if (doc) {
-      res.json({
+      res.status(401).json({
         sucess: false,
         message: 'Document with this title exists'
       });
@@ -24,7 +26,7 @@ DocumentController.prototype.createDocument = function(req, res) {
 };
 
 DocumentController.prototype.getAllDocuments = function(req, res) {
-  Document.find(function(err, docs) {
+  Document.find({}).populate('ownerId').exec(function(err, docs) {
     if (err) {
       return res.json(err);
     }
@@ -44,7 +46,7 @@ DocumentController.prototype.findDocument = function(req, res) {
 DocumentController.prototype.updateDocument = function(req, res) {
   Document.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, doc) {
     if (err) {
-      return res.json(err);
+      return res.status(401).json(err);
     }
     res.json(doc);
   });
