@@ -1,8 +1,12 @@
+'use strict';
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require("method-override");
 var app = express();
 var session = require('client-sessions');
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
 
 module.exports = function() {
   app.use(bodyParser.json());
@@ -21,7 +25,10 @@ module.exports = function() {
     duration: 30 * 60 * 1000, //how long the session will live in milliseconds
     activeDuration: 5 * 60 * 1000, //allows users to lengthen their session by interacting with the site
   }));
-
+  app.use(express.static(path.join(appDir + '/public')));
+  app.get('/', function(req, res) {
+    res.sendFile(appDir + '/public/index.html');
+  });
 
   require('../app/routes/index')(app);
   return app;
