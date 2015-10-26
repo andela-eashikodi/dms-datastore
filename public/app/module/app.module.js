@@ -1,7 +1,7 @@
 'use strict';
 
 //defines module for the app
-angular.module('DmsApp', ['ui.router', 'ngMaterial', 'ngMdIcons', 'ngStorage', 'ngMessages', 'ngResource']);
+angular.module('DmsApp', ['ui.router', 'ngMaterial', 'ngMdIcons', 'ngStorage', 'ngMessages', 'ngResource', 'angularUtils.directives.dirPagination']);
 
 //configure routing for app
 angular.module('DmsApp').config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
