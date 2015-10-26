@@ -7,8 +7,8 @@ angular.module('DmsApp', ['ui.router', 'ngMaterial', 'ngMdIcons', 'ngStorage', '
 angular.module('DmsApp').config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
 
   $stateProvider
-    .state('home', {
-      url: '/home',
+    .state('recent', {
+      url: '/recent',
       templateUrl: '../app/views/home.view.html',
       controller: 'homeCtrl'
     })
@@ -42,8 +42,8 @@ angular.module('DmsApp').config(['$stateProvider', '$urlRouterProvider', '$httpP
       templateUrl: '../app/views/doc-details.view.html',
       controller: 'documentCtrl'
     })
-    .state('more', {
-      url: '/more',
+    .state('home', {
+      url: '/home',
       templateUrl: '../app/views/more-docs.view.html',
       controller: 'homeCtrl'
     });
