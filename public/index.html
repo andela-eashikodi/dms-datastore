@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="DmsApp">
+<html lang="en" ng-app="DmsApp" class="body-color">
 <head>
   <title>DataStore</title>
   <meta charset="utf-8">
@@ -10,17 +10,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
   <link href="http://heathpilton.com.au/wp-content/uploads/2013/06/Document-icon-blue.png" rel="icon" type="image/x-icon">
 </head>
-<body>
+<body class="body-color">
 
   <div ng-controller="homeCtrl" ng-include="'app/views/header.view.html'"></div>
   
   <ui-view></ui-view>
-
-  <div class="footer">
-    <center>
-      <span>©copyright 2015 &nbsp; </span><a href="http://github.com/andela-eashikodi">Ashikodi</a>
-    </center>
-  </div>
 
   <!-- Angular Dependencies -->
   <script src="build/js/main.js"></script>
