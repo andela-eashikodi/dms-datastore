@@ -1,0 +1,20 @@
+<div class="menu">
+    <ul class="" ng-if="1 < pages.length || !autoHide">
+        <li ng-if="boundaryLinks">
+            <a href="" ng-click="setCurrent(1)">&laquo;</a>
+        </li>
+        <li ng-if="directionLinks">
+            <a href="" ng-click="setCurrent(pagination.current - 1)">&lsaquo;</a>
+        </li>
+        <li ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)">
+            <a href="" ng-click="setCurrent(pageNumber)">{{ pageNumber }}</a>
+        </li>
+
+        <li ng-if="directionLinks">
+            <a href="" ng-click="setCurrent(pagination.current + 1)">&rsaquo;</a>
+        </li>
+        <li ng-if="boundaryLinks">
+            <a href="" ng-click="setCurrent(pagination.last)">&raquo;</a>
+        </li>
+    </ul>
+</div>
