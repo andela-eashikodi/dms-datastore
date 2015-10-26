@@ -5,24 +5,12 @@
           <span>{{docDetails.title}}</span>
         </center>
     </md-subheader>
-    <md-subheader ng-show="showError" class="error-header">
-      <center>
-        <span>
-          <i class="fa fa-warning fa-lg"></i>
-          <em><strong>{{errorMsg}}</strong></em>
-        </span>
-      </center>
-    </md-subheader>
     <md-content class="md-padding">
-       <form name="docForm">
         {{docDetails.content}}
         <br><br>
         <div class="md-actions" layout="row" layout-align="center center">
           <md-button flex="20" ng-click="goBack()" class="md-raised md-hue-4">Go Back</md-button>
         </div>
-      </form>
-      <md-progress-linear md-mode="indeterminate" ng-show="showProg" class="md-primary">
-      </md-progress-linear>
     </md-content>
   </md-card>
 </md-content>

@@ -1,18 +1,25 @@
-<md-subheader class="home-content profile-bar">
-    <center>
-      <span>All Documents </span>
-    </center>
-</md-subheader>
-<md-content class="md-padding body-color" flex>
-  <md-card ng-repeat="doc in recentDocs | orderBy: '-date_created'" style="margin-left:10px;float:left;">
-    <md-card-content>
-      <a ng-href="#" ui-sref="view({id: doc._id})">
-        <h3 class="docs-title">{{doc.title}}</h3>
-      </a>
-      <h4 ng-if="(doc.content).length >= 20" class="docs-content">{{(doc.content).substring(0, 20)+'...'}}</h4>
-      <h4 ng-if="(doc.content).length < 20" class="docs-content">{{doc.content}}</h4>
-      <h4>Created At:&nbsp;<strong>{{ doc.date_created | date: medium}}</strong></h4>
-    </md-card-content>
-  </md-card>
+<md-content class="body-color">
+  <div layout layout-align="center center">
+    <md-card layout-margin flex="50">
+      <md-subheader class="doc-header">
+          <center>
+            <span>Recent Docs</span>
+          </center>
+      </md-subheader>
+      <md-list>
+        <md-list-item class="md-3-line" ng-repeat="doc in recentDocs | orderBy: '-date_created' | limitTo: 3 ">
+          <div class="md-list-item-text" layout="column" layout-align="center center" layout-align-gt-md="end center">
+            <a ng-href="#" ui-sref="view({id: doc._id})">
+              <h3 class="docs-title">{{doc.title}}</h3>
+            </a>
+            <h4 ng-if="(doc.content).length >= 20" class="docs-content">{{(doc.content).substring(0, 20)+'...'}}</h4>
+            <h4 ng-if="(doc.content).length < 20" class="docs-content">{{doc.content}}</h4>
+            <h4>Created By:&nbsp;<strong><em>{{ doc.ownerId.username}}</em></strong></h4>
+            <h4>Created At:&nbsp;<strong>{{ doc.date_created | date: medium}}</strong></h4>
+          </div>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-card>
+  </div>
 </md-content>
-

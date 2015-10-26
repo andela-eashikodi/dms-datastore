@@ -56,6 +56,9 @@
               <a ui-sref="edit({id: doc._id})">edit</a>&nbsp;&nbsp;<a ui-sref="view({id: doc._id})">view</a>&nbsp;&nbsp;<a ng-click="deleteDoc(doc)" href="">delete</a>
             </md-card-content>
           </md-card>
+          <div ng-if="!userDocs.length" layout layout-margin layout-align="center center">
+            <span>You have no documents created</a></span>
+          </div>
         </md-content>
       </md-tab>
     </md-tabs>
