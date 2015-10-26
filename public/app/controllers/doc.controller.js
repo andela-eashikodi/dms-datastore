@@ -8,7 +8,7 @@ angular.module('DmsApp').controller('documentCtrl', ['$scope', '$rootScope', '$l
       $scope.createDocSuccess = true;
       $scope.showError = false;
       //redirect to user profile
-      $location.url('profile');
+      $location.url('more');
       ToastService.showToast('New Document Created! ');
     }, function(err) {
       //show error if task failed
@@ -46,6 +46,10 @@ angular.module('DmsApp').controller('documentCtrl', ['$scope', '$rootScope', '$l
     }, function(err) {
       ToastService.showErrorToast('Document with this title exists!');
     });
+  };
+
+  $scope.goBack = function() {
+    $window.history.back();
   };
 
 }]);
