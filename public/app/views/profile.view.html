@@ -1,37 +1,46 @@
 <div class="content-view" data-ng-init="getProfile()">
   <md-content class="body-color" ng-controller="documentCtrl">
     <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="Edit Profile">
+      <md-tab label="Account Details">
         <md-content class="md-padding body-color">
-          <md-subheader class="profile-bar">
-            <strong>Account Information</strong>
-          </md-subheader>
-          <form name="signupForm">
-            <md-input-container md-no-float>
-              <md-icon><i class="fa fa-user-secret fa-lg"></i></md-icon>
-              <input name="username" ng-model="userInformation.username" type="text" placeholder="Username" ng-required="true">
-            </md-input-container>
-            <md-input-container md-no-float>
-              <md-icon><i class="fa fa-user fa-lg"></i></md-icon>
-              <input name="firstname" ng-model="userInformation.name.first" type="text" placeholder="First Name" ng-required="true">
-            </md-input-container>
-            <md-input-container md-no-float>
-              <md-icon><i class="fa fa-user fa-lg"></i></md-icon>
-              <input name="lastname" ng-model="userInformation.name.last" type="text" placeholder="Last Name" ng-required="true">
-            </md-input-container>
-            <md-input-container md-no-float>
-              <md-icon md-svg-src="assets/icons/email.icon.svg"></md-icon>
-              <input name="emailName" ng-model="userInformation.email" type="email" placeholder="Email" ng-required="true">
-              <div flex-offset="5" ng-messages="signupForm.emailName.$error">
-                <div ng-message="email">Type in a valid email address</div>
-              </div>
-            </md-input-container>
-            <div class="md-actions" layout="row" layout-align="center center">
-              <md-button ng-disabled="signupForm.$invalid" flex="30" ng-click="saveUserChanges(userInformation)" class="md-raised md-hue-4">Save Changes</md-button>
-            </div>
-          </form>
-          <md-progress-linear md-mode="indeterminate" ng-show="showProg" class="md-primary">
-          </md-progress-linear>
+          <md-card flex="40" flex-sm="80">
+            <md-card-content ng-hide="editMode">
+              <h4>Username:&nbsp;&nbsp; {{userInformation.username}}</h4>
+              <h4>First Name:&nbsp;&nbsp; {{userInformation.name.first}}</h4>
+              <h4>Last Name:&nbsp;&nbsp; {{userInformation.name.last}}</h4>
+              <h4>Email Addr:&nbsp;&nbsp; {{userInformation.email}}</h4><br>
+              <strong><a href="" ng-click="editMode=true">Edit Profile</a></strong>
+            </md-card-content>
+            <md-card-content ng-show="editMode">
+              <form name="signupForm">
+                <md-input-container md-no-float>
+                  <md-icon><i class="fa fa-user-secret fa-lg"></i></md-icon>
+                  <input name="username" ng-model="userInformation.username" type="text" placeholder="Username" ng-required="true">
+                </md-input-container>
+                <md-input-container md-no-float>
+                  <md-icon><i class="fa fa-user fa-lg"></i></md-icon>
+                  <input name="firstname" ng-model="userInformation.name.first" type="text" placeholder="First Name" ng-required="true">
+                </md-input-container>
+                <md-input-container md-no-float>
+                  <md-icon><i class="fa fa-user fa-lg"></i></md-icon>
+                  <input name="lastname" ng-model="userInformation.name.last" type="text" placeholder="Last Name" ng-required="true">
+                </md-input-container>
+                <md-input-container md-no-float>
+                  <md-icon md-svg-src="assets/icons/email.icon.svg"></md-icon>
+                  <input name="emailName" ng-model="userInformation.email" type="email" placeholder="Email" ng-required="true">
+                  <div flex-offset="5" ng-messages="signupForm.emailName.$error">
+                    <div ng-message="email">Type in a valid email address</div>
+                  </div>
+                </md-input-container>
+                <div class="md-actions" layout="row" layout-align="center center">
+                  <md-button ng-disabled="signupForm.$invalid" flex="30" ng-click="saveUserChanges(userInformation)" class="md-raised md-hue-4">Save Changes</md-button>
+                  <md-button flex="30" ng-click="editMode=false" class="md-raised md-hue-4">Cancel</md-button>
+                </div>
+              </form>
+              <md-progress-linear md-mode="indeterminate" ng-show="showProg" class="md-primary">
+              </md-progress-linear>
+            </md-card-content>
+          </md-card>
         </md-content>
       </md-tab>
       <md-tab label="My Documents">
