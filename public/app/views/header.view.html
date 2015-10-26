@@ -6,29 +6,24 @@
     <span flex>
       <a ui-sref="home">Data-Store</a>
     </span>
-    <a ng-href="#" ui-sref="more" hide-md hide-sm title="more docs" aria-label="more docs" class="md-primary md-raised md-hue-1">
-      More Docs
-    </a>
     &nbsp;
     &nbsp;
-    <a hide-md hide-sm title="sign in" ng-hide="isLogged" aria-label="sign in" class="md-primary md-raised md-hue-1 sign-button" ui-sref="signin">
+    <md-button hide-md hide-sm title="sign in" ng-hide="isLogged" aria-label="sign in" class="md-raised md-hue-1" ui-sref="signin">
       Sign In
-    </a>
+    </md-button>
     &nbsp;
     &nbsp;
-    <a ng-href="#/create" hide-md hide-sm title="create" ng-show="isLogged" aria-label="create doc" class="md-primary md-raised md-hue-1 sign-button">
+    <a ng-href="#/create" hide-md hide-sm title="create" ng-show="isLogged" aria-label="create doc" class="md-raised md-hue-1">
       Create Doc
     </a>
     &nbsp;
     &nbsp;
-    <a ng-href="#/profile" hide-md hide-sm title="my profile" ng-show="isLogged" aria-label="my profile" class="md-primary md-raised md-hue-1 sign-button">
+    <md-button ng-href="#/profile" hide-md hide-sm title="my profile" ng-show="isLogged" aria-label="my profile" class="md-raised md-hue-1">
       My Profile
-    </a>
-    &nbsp;
-    &nbsp;
-    <a href="" hide-md hide-sm title="logout" ng-show="isLogged" ng-click="logout()" aria-label="logout" class="md-primary md-raised md-hue-1 sign-button">
+    </md-button>
+    <md-button href="" hide-md hide-sm title="logout" ng-show="isLogged" ng-click="logout()" aria-label="logout" class="md-raised md-hue-1">
       Log Out
-    </a>
+    </md-button>
     <a hide-gt-md class="md-icon-button" aria-label="Settings" ng-click="toggle()">
       <i class="fa fa-bars fa-lg"> </i>
     </a>
@@ -48,13 +43,10 @@
     <md-button ng-href="#/create" ng-click="close()" ng-show="isLogged" title="jobs" aria-label="jobs" class="md-primary md-hue-1">
       CREATE DOC
     </md-button>
-    <md-button ng-click="close()" title="jobs" aria-label="jobs" class="md-primary md-hue-1">
-      MORE DOCS
-    </md-button>
-    <md-button ng-click="close()" ng-hide="isLogged" title="login" aria-label="login" class="md-primary md-hue-1">
+    <md-button ng-href="#/signin" ng-click="close()" ng-hide="isLogged" title="login" aria-label="login" class="md-primary md-hue-1">
       SIGN IN
     </md-button>
-    <md-button ng-click="close()" ng-hide="isLogged" title="signup" aria-label="signup" class="md-primary md-hue-1">
+    <md-button ng-href="#/signup" ng-click="close()" ng-hide="isLogged" title="signup" aria-label="signup" class="md-primary md-hue-1">
       SIGN UP
     </md-button>
      <md-button ng-href="#/profile" ng-click="close()" ng-show="isLogged" title="profile" aria-label="profile" class="md-primary  md-hue-1">
