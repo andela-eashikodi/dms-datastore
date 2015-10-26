@@ -36,6 +36,16 @@ angular.module('DmsApp').config(['$stateProvider', '$urlRouterProvider', '$httpP
       url: '/edit/:id',
       templateUrl: '../app/views/edit-doc.view.html',
       controller: 'documentCtrl'
+    })
+    .state('view', {
+      url: '/view/:id',
+      templateUrl: '../app/views/doc-details.view.html',
+      controller: 'documentCtrl'
+    })
+    .state('more', {
+      url: '/more',
+      templateUrl: '../app/views/more-docs.view.html',
+      controller: 'homeCtrl'
     });
 
    $urlRouterProvider.otherwise('home');
@@ -56,7 +66,7 @@ angular.module('DmsApp').run(['$rootScope', '$window', function($rootScope, $win
 //config block for angular custom theme
 angular.module('DmsApp').config(function($mdThemingProvider) {
   var neonRedMap = $mdThemingProvider.extendPalette('red', {
-    '500': '2f4f4f'
+    '500': '708090'
   });
   $mdThemingProvider.definePalette('neonRed', neonRedMap);
   $mdThemingProvider.theme('default')
