@@ -1,6 +1,14 @@
+.body-color {
+  background: #f5f5f5;
+}
+
+.header-div {
+  color: slategray
+}
+
 .footer {
   position: fixed;
-  background-color: #2f4f4f;
+  background-color: #528b8b;
   height: 2em;
   bottom: 0;
   width: 100%;
@@ -26,7 +34,7 @@
 }
 
 .doc-header {
-  background:#cccccc;
+  background:slategray;
   margin: 0;
 }
 
@@ -36,12 +44,7 @@
   border: 1px solid white;
 }
 
-.sign-button:hover {
-  background: #7ac5cd;
-}
-
 .docs-title {
-  color: black;
   font-weight: 600 !important;
 }
 
@@ -50,7 +53,7 @@
 }
 
 .log-header {
-  background:#528b8b;
+  background:slategray;
   margin:0;
   color:white;
   font-size: 18px;
