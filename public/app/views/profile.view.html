@@ -1,24 +1,8 @@
 <div class="content-view" data-ng-init="getProfile()">
-  <md-content ng-controller="documentCtrl">
+  <md-content class="body-color" ng-controller="documentCtrl">
     <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="My Documents">
-        <md-content class="md-padding" flex>
-          <md-card ng-repeat="doc in userDocs" style="margin-left:10px;float:left;">
-            <md-card-content>
-              <a ng-href="#/home">
-                <h3 class="docs-title">{{doc.title}}</h3>
-              </a>
-              <h4 ng-if="(doc.content).length >= 20" class="docs-content">{{(doc.content).substring(0, 20)+'...'}}</h4>
-              <h4 ng-if="(doc.content).length < 20" class="docs-content">{{doc.content}}</h4>
-              <h4>Created At:&nbsp;<strong>{{ doc.date_created | date: medium}}</strong></h4>
-              <a ui-sref="edit({id: doc._id})">edit</a>&nbsp;&nbsp;<a href="">view</a>&nbsp;&nbsp;<a ng-click="deleteDoc(doc)" href="">delete</a>
-            </md-card-content>
-          </md-card>
-        </md-content>
-
-      </md-tab>
       <md-tab label="Edit Profile">
-        <md-content class="md-padding">
+        <md-content class="md-padding body-color">
           <md-subheader class="profile-bar">
             <strong>Account Information</strong>
           </md-subheader>
@@ -48,6 +32,21 @@
           </form>
           <md-progress-linear md-mode="indeterminate" ng-show="showProg" class="md-primary">
           </md-progress-linear>
+        </md-content>
+      </md-tab>
+      <md-tab label="My Documents">
+        <md-content class="md-padding body-color" flex>
+          <md-card ng-repeat="doc in userDocs" style="margin-left:10px;float:left;">
+            <md-card-content>
+              <a ng-href="#" ui-sref="view({id: doc._id})">
+                <h3 class="docs-title">{{doc.title}}</h3>
+              </a>
+              <h4 ng-if="(doc.content).length >= 20" class="docs-content">{{(doc.content).substring(0, 20)+'...'}}</h4>
+              <h4 ng-if="(doc.content).length < 20" class="docs-content">{{doc.content}}</h4>
+              <h4>Created At:&nbsp;<strong>{{ doc.date_created | date: medium}}</strong></h4>
+              <a ui-sref="edit({id: doc._id})">edit</a>&nbsp;&nbsp;<a ui-sref="view({id: doc._id})">view</a>&nbsp;&nbsp;<a ng-click="deleteDoc(doc)" href="">delete</a>
+            </md-card-content>
+          </md-card>
         </md-content>
       </md-tab>
     </md-tabs>
