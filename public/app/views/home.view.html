@@ -4,8 +4,8 @@
       <span>All Documents </span>
     </center>
 </md-subheader>
-<md-content class="md-padding body-color" flex>
-  <md-card dir-paginate="doc in recentDocs | orderBy: '-date_created' | itemsPerPage: pageSize" current-page="currentPage" class="home-display">
+<md-content layout-sm="column" layout-md="column" class="md-padding body-color" flex>
+  <md-card dir-paginate="doc in recentDocs | orderBy: '-last_modified' | itemsPerPage: pageSize" current-page="currentPage" class="home-display">
     <md-card-content>
       <a ng-href="#" ui-sref="view({id: doc._id})">
         <h3 class="docs-title">{{doc.title}}</h3>
@@ -13,6 +13,7 @@
       <h4 ng-if="(doc.content).length >= 20" class="docs-content">{{(doc.content).substring(0, 20)+'...'}}</h4>
       <h4 ng-if="(doc.content).length < 20" class="docs-content">{{doc.content}}</h4>
       <h4>Created At:&nbsp;<strong>{{ doc.date_created | date: medium}}</strong></h4>
+      <span>Last Modified:&nbsp;{{ doc.last_modified | date: medium}}</span>
     </md-card-content>
   </md-card>
   <div ng-if="!recentDocs.length" layout layout-margin layout-align="center center">

@@ -9,7 +9,7 @@
               <h4>First Name:&nbsp;&nbsp; {{userInformation.name.first}}</h4>
               <h4>Last Name:&nbsp;&nbsp; {{userInformation.name.last}}</h4>
               <h4>Email Addr:&nbsp;&nbsp; {{userInformation.email}}</h4><br>
-              <strong><a href="" ng-click="editMode=true">Edit Profile</a></strong>
+              <strong><a href="" class="link-color" ng-click="editMode=true">Edit Profile</a></strong>
             </md-card-content>
             <md-card-content ng-show="editMode">
               <form name="signupForm">
@@ -45,7 +45,7 @@
       </md-tab>
       <md-tab label="My Documents">
         <md-content class="md-padding body-color" flex>
-          <md-card ng-repeat="doc in userDocs" style="margin-left:10px;float:left;">
+          <md-card ng-repeat="doc in userDocs" class="home-display">
             <md-card-content>
               <a ng-href="#" ui-sref="view({id: doc._id})">
                 <h3 class="docs-title">{{doc.title}}</h3>
@@ -53,7 +53,7 @@
               <h4 ng-if="(doc.content).length >= 20" class="docs-content">{{(doc.content).substring(0, 20)+'...'}}</h4>
               <h4 ng-if="(doc.content).length < 20" class="docs-content">{{doc.content}}</h4>
               <h4>Created At:&nbsp;<strong>{{ doc.date_created | date: medium}}</strong></h4>
-              <a ui-sref="edit({id: doc._id})">edit</a>&nbsp;&nbsp;<a ui-sref="view({id: doc._id})">view</a>&nbsp;&nbsp;<a ng-click="deleteDoc(doc)" href="">delete</a>
+              <a class="link-color" ui-sref="edit({id: doc._id})">edit</a>&nbsp;&nbsp;<a class="link-color" ui-sref="view({id: doc._id})">view</a>&nbsp;&nbsp;<a class="link-color" ng-click="deleteDoc(doc)" href="">delete</a>
             </md-card-content>
           </md-card>
           <div ng-if="!userDocs.length" layout layout-margin layout-align="center center">

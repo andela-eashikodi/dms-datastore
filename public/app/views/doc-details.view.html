@@ -2,11 +2,13 @@
   <md-card flex="50">
     <md-subheader class="log-header">
         <center>
-          <span>{{docDetails.title}}</span>
+          <span></span>
         </center>
     </md-subheader>
     <md-content class="md-padding">
-        {{docDetails.content}}
+        <h4>Title:</h4><span>{{docDetails.title}}</span>
+        <h4>Content:</h4>
+        <p>{{docDetails.content}}</p>
         <br><br>
         <div class="md-actions" layout="row" layout-align="center center">
           <md-button flex="20" ng-click="goBack()" class="md-raised md-hue-4">Go Back</md-button>
