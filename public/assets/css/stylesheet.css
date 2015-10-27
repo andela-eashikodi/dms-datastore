@@ -1,26 +1,25 @@
 .home-display {
-  margin-left: 10px;
+  min-width: 233px;
   float: left;
 }
 
 .menu { 
-  padding:0; 
-  margin-left:80px; 
-  width:400px; 
-  float:left;
+  margin-right: 40px;
 }
+
 .menu ul { 
-  margin:0; 
   list-style:none; 
   border:0; 
   float:left;
 }
+
 .menu ul li { 
   float:left; 
   margin:0; 
   padding:0; 
   border:0;
 }
+
 .menu ul li a { 
   float:left; 
   margin:0; 
@@ -33,7 +32,7 @@
   background: #f5f5f5;
 }
 
-.header-div {
+.link-color {
   color: slategray
 }
 
@@ -81,6 +80,7 @@
 
 .docs-title {
   font-weight: 600 !important;
+  color: slategray;
 }
 
 .docs-content {
