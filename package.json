@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jasmine-node spec/api_route.spec.js --forceexit --verbose",
-    "prestart": "npm install",
-    "start": "node server"
+    "start": "nodemon server"
   },
   "repository": {
     "type": "git",
