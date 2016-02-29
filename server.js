@@ -2,14 +2,16 @@
 
 var mongoose = require('mongoose');
 var db = process.env.MONGOLAB_URI || 'mongodb://localhost/testdmsapi';
+var port = process.env.PORT || '7000';
 mongoose.connect(db);
 var app = require('./config/express')();
 
-app.listen('7000', function(err) {
+app.listen(port, function(err) {
   if(err) {
     throw err;
   }
-  console.log('Server started on port 7000');
+  console.log('Server started on port: ' + port);
+  console.log('mongo connection: ' + db);
 });
 
 module.exports = app;
