@@ -1,7 +1,8 @@
 'use strict';
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/testdmsapi');
+var db = process.env.MONGOLAB_URI || 'mongodb://localhost/testdmsapi';
+mongoose.connect(db);
 var app = require('./config/express')();
 
 app.listen('7000', function(err) {

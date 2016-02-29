@@ -4,7 +4,7 @@
 angular.module('DmsApp', ['ui.router', 'ngMaterial', 'ngMdIcons', 'ngStorage', 'ngMessages', 'ngResource', 'angularUtils.directives.dirPagination']);
 
 //configure routing for app
-angular.module('DmsApp').config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
+angular.module('DmsApp').config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
 
   $stateProvider
     .state('more-docs', {
@@ -49,6 +49,10 @@ angular.module('DmsApp').config(['$stateProvider', '$urlRouterProvider', '$httpP
     });
 
    $urlRouterProvider.otherwise('home');
+   // $locationProvider.html5Mode({
+   //    enabled: true,
+   //    requireBase: false
+   //  });
 
 }]);
 
